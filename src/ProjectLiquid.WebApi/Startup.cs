@@ -63,6 +63,8 @@ namespace ProjectLiquid.WebApi
 
             services.AddLiquidEntityFramework<LiquidDbContext, ProductEntity, int>(options);
 
+            services.AddLiquidEntityFramework<LiquidDbContext, CustomerEntity, int>(options);
+
             services.AddLiquidHttp(typeof(IDomainInjection).Assembly);
 
             services.AddControllers();
