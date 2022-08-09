@@ -7,6 +7,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using Microsoft.EntityFrameworkCore;
+using Liquid.Repository.EntityFramework.Extensions;
+using ProjectLiquid.Repository;
 
 namespace ProjectLiquid.WebApi
 {
@@ -55,6 +58,10 @@ namespace ProjectLiquid.WebApi
             // 9. import ProjectLiquid.Repository here: using ProjectLiquid.Repository;
             // 9. call cartridge DI method here: services.AddLiquidEntityFramework<LiquidDbContext, ProductEntity, int>(options);
             // 10. edit appsettings.json file to include database configurations if necessary (for InMemory it's not necessary).
+
+            Action<DbContextOptionsBuilder> options = (opt) => opt.UseInMemoryDatabase("CRUD");
+
+            services.AddLiquidEntityFramework<LiquidDbContext, ProductEntity, int>(options);
 
             services.AddLiquidHttp(typeof(IDomainInjection).Assembly);
 
