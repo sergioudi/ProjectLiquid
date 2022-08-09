@@ -6,7 +6,7 @@ namespace ProjectLiquid.Domain.Handlers.Product.Create
     {
         public CreateProductCommandValidator()
         {
-            RuleFor(request => request.Body.Id).NotEmpty().NotNull();
+
         }
     }
 }
