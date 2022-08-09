@@ -5,6 +5,6 @@ namespace ProjectLiquid.Domain.Entities
 {
     public class ProductEntity : LiquidEntity<int>
     {
-        //TODO: declare entity properties.
+        public string Description { get; set; }
     }
 }
